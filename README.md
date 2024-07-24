@@ -18,26 +18,37 @@ This is a simple web application for managing a list of employees, allowing the 
    git clone https://github.com/yourusername/employee-management.git
    ```
 
-2. Import the `employee_management.sql` file to create the database and the `employees` table:
+2. Import the `employee_management.sql` file to MySQL Server for XAMPP (http://localhost/phpmyadmin/index.php) to create the database and the `employees` and `users` table:
 
    ```sql
    CREATE DATABASE IF NOT EXISTS employee_management;
    USE employee_management;
-   CREATE TABLE `employees` (
-     `id` int(11) NOT NULL AUTO_INCREMENT,
-     `firstname` varchar(50) NOT NULL,
-     `lastname` varchar(50) NOT NULL,
-     `email` varchar(100) NOT NULL,
-     `phone` varchar(15) NOT NULL,
-     `position` varchar(50) NOT NULL,
-     `profile_picture` varchar(255) NOT NULL,
-     PRIMARY KEY (`id`)
-   ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+   CREATE TABLE IF NOT EXISTS `users` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `username` VARCHAR(50) NOT NULL UNIQUE,
+    `password` VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
+
+    CREATE TABLE IF NOT EXISTS `employees` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `firstname` VARCHAR(50) NOT NULL,
+    `lastname` VARCHAR(50) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
+    `phone` VARCHAR(15) NOT NULL,
+    `position` VARCHAR(50) NOT NULL,
+    `profile_picture` VARCHAR(255) NOT NULL);
+    ENGINE=InnoDB DEFAULT CHARSET=utf8;
    ```
 
 3. Update the `config.php` file with your database connection details.
 
-4. Start your local server and navigate to the `login.php` page to start using the application.
+4. Copy the folder in htdocs folder in XAMPP.
+
+5. Start your local server and navigate to the `http://localhost/employee-management/signup.php` page to create user using the application.
+
+6. You will be directed to `http://localhost/employee-management/index.php` page to login.
+
+7. Now you can add, edit and delete data of emplyoees.
 
 ## Features
 
