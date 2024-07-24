@@ -42,7 +42,7 @@ This is a simple web application for managing a list of employees, allowing the 
 
 3. Update the `config.php` file with your database connection details.
 
-4. Copy the folder in htdocs folder in XAMPP.
+4. Copy the folder Employee-management in htdocs folder in XAMPP.
 
 5. Start your local server and navigate to the `http://localhost/employee-management/signup.php` page to create user using the application.
 
